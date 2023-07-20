@@ -8,11 +8,11 @@ resources:
 configMapGenerator:
 
   # can be other file type
-  - name: att-user-inquiry-configmap-file
+  - name: att-user-produce-configmap-file
     files:
     - configs/config.yaml
 
 secretGenerator:
-  - name: att-user-inquiry-secret-env
+  - name: att-user-produce-secret-env
     envs:
     - secrets/secret.env

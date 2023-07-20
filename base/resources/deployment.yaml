@@ -1,32 +1,32 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: att-user-inquiry
+  name: att-user-produce
   labels:
-    app.kubernetes.io/name: att-user-inquiry
-    app.kubernetes.io/instance: att-user-inquiry
+    app.kubernetes.io/name: att-user-produce
+    app.kubernetes.io/instance: att-user-produce
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app.kubernetes.io/name: att-user-inquiry
-      app.kubernetes.io/instance: att-user-inquiry
+      app.kubernetes.io/name: att-user-produce
+      app.kubernetes.io/instance: att-user-produce
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: att-user-inquiry
-        app.kubernetes.io/instance: att-user-inquiry
+        app.kubernetes.io/name: att-user-produce
+        app.kubernetes.io/instance: att-user-produce
     spec:
       containers:
-        - name: att-user-inquiry
-          image: asia.gcr.io/poc-innovation-iot/att-user-inquiry:TAG
+        - name: att-user-produce
+          image: asia.gcr.io/poc-innovation-iot/att-user-produce:TAG
           imagePullPolicy: IfNotPresent
           envFrom:
             - secretRef:
-                name: att-user-inquiry-secret-env
+                name: att-user-produce-secret-env
           volumeMounts:
               - mountPath: /config/config.yaml
-                name: att-user-inquiry-configmap-file
+                name: att-user-produce-configmap-file
                 subPath: config.yaml
           ports:
             - name: http
@@ -52,9 +52,9 @@ spec:
               cpu: 32m
               memory: 32Mi
       volumes:
-        - name: att-user-inquiry-secret-file
+        - name: att-user-produce-secret-file
           secret:
-            secretName: att-user-inquiry-secret-file
-        - name: att-user-inquiry-configmap-file
+            secretName: att-user-produce-secret-file
+        - name: att-user-produce-configmap-file
           configMap:
-            name: att-user-inquiry-configmap-file
+            name: att-user-produce-configmap-file
