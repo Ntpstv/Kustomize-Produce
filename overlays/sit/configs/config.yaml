@@ -22,7 +22,7 @@ kafka:
 
 postgres:
   host: 172.28.240.42
-  port: 5431
+  port: 5432
   db-name: att-db
 
 
