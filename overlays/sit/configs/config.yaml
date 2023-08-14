@@ -23,7 +23,7 @@ kafka:
 postgres:
   host: 172.28.240.42
   port: 5432
-  db-name: example-db
+  db-name: att-db
 
 
 redis:
